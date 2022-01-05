@@ -1,5 +1,6 @@
 let clockTime = document.querySelector('.clock-display');
 
+
 function displayTime() {
     let getTime = new Date();
     let seconds = getTime.getSeconds();
@@ -19,12 +20,15 @@ function displayTime() {
     return currentTime;
 }
 
+function percentTime(){
+    let percentDay = new Date();
+    let percentSec = percentDay.getSeconds();
+    console.log(percentSec / 60);
+}
+
 setInterval(function() {
     clockTime.textContent = displayTime();
+    //percentTime();
 }, 1000);
-
-
-
-
 
 
