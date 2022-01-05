@@ -1,1 +1,2 @@
-console.log('hi');
+let currentTime = new Date();
+console.log(currentTime);
