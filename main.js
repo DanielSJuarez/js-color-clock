@@ -26,8 +26,12 @@ function percentTime(){
     let percentSec = percentDay.getSeconds();
     let percentOfMin = percentSec / 60;
     console.log(percentOfMin);
-    let dynmWidth = '15rem' / percentOfMin;
-    progBar.style.width = dynmWidth;
+    if(percentOfMin == 0){
+        progBar.style.width = '0rem';
+    } else {
+        let remPercent = percentOfMin * 15;
+        progBar.style.width = remPercent + 'rem';
+    }
 }
 
 setInterval(function() {
