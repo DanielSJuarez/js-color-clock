@@ -1,4 +1,5 @@
-let clockTime = document.querySelector('.clock-display');
+const clockTime = document.querySelector('.clock-display');
+const progBar = document.querySelector('.clock-progress-bar');
 
 
 function displayTime() {
@@ -23,12 +24,15 @@ function displayTime() {
 function percentTime(){
     let percentDay = new Date();
     let percentSec = percentDay.getSeconds();
-    console.log(percentSec / 60);
+    let percentOfMin = percentSec / 60;
+    console.log(percentOfMin);
+    let dynmWidth = '15rem' / percentOfMin;
+    progBar.style.width = dynmWidth;
 }
 
 setInterval(function() {
     clockTime.textContent = displayTime();
-    //percentTime();
+    percentTime();
 }, 1000);
 
 
