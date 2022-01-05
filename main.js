@@ -1,6 +1,6 @@
 const clockTime = document.querySelector('.clock-display');
 const progBar = document.querySelector('.clock-progress-bar');
-
+const clockFaceColor = document.querySelector('.clock');
 
 function displayTime() {
     let getTime = new Date();
@@ -34,9 +34,24 @@ function percentTime(){
     }
 }
 
+function changeBackground(){
+    let colorTime = new Date();
+    let colorSec = colorTime.getSeconds();
+    let colorMin = colorTime.getMinutes();
+    let colorHrs = colorTime.getHours();
+    let color = []
+    color.unshift(colorSec);
+    color.unshift(colorMin);
+    color.unshift(colorHrs);
+
+    console.log(color);
+    //clockFaceColor.style.background = '#' + color;
+}
+
 setInterval(function() {
     clockTime.textContent = displayTime();
     percentTime();
+    //changeBackground();
 }, 1000);
 
 
