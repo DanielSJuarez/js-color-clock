@@ -39,19 +39,15 @@ function changeBackground(){
     let colorSec = colorTime.getSeconds();
     let colorMin = colorTime.getMinutes();
     let colorHrs = colorTime.getHours();
-    let color = []
-    color.unshift(colorSec);
-    color.unshift(colorMin);
-    color.unshift(colorHrs);
-
-    console.log(color);
-    //clockFaceColor.style.background = '#' + color;
+    let hexColor = '#' + colorSec + colorHrs + colorMin;
+    console.log(hexColor);
+    clockFaceColor.style.background = hexColor;
 }
 
 setInterval(function() {
     clockTime.textContent = displayTime();
     percentTime();
-    //changeBackground();
+    changeBackground();
 }, 1000);
 
 
