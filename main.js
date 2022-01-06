@@ -32,7 +32,7 @@ function percentTime() {
     let percentDay = new Date();
     let percentSec = percentDay.getSeconds();
     let percentOfMin = percentSec / 60;
-    
+
     if (percentOfMin == 0) {
         progBar.style.width = '0rem';
     } else {
