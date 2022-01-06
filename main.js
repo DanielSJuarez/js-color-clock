@@ -2,7 +2,7 @@ const clockTime = document.querySelector('.clock-display');
 const progBar = document.querySelector('.clock-progress-bar');
 const clockFaceColor = document.querySelector('.clock');
 
-function displayTime() {
+function displayTimeColor() {
     let getTime = new Date();
     let seconds = getTime.getSeconds();
     let minutes = getTime.getMinutes();
@@ -18,6 +18,12 @@ function displayTime() {
         hours = '0' + hours;
     }
     let currentTime = hours + ":" + minutes + ":" + seconds;
+    let hexColor = '#' + seconds + hours + minutes;
+    console.log(hexColor);
+    clockFaceColor.style.background = hexColor;
+    clockTime.addEventListener('mouseover', () => {
+        clockTime.textContent =  hexColor;
+    })
     return currentTime;
 }
 
@@ -34,20 +40,24 @@ function percentTime(){
     }
 }
 
-function changeBackground(){
-    let colorTime = new Date();
-    let colorSec = colorTime.getSeconds();
-    let colorMin = colorTime.getMinutes();
-    let colorHrs = colorTime.getHours();
-    let hexColor = '#' + colorSec + colorHrs + colorMin;
-    console.log(hexColor);
-    clockFaceColor.style.background = hexColor;
-}
+// function changeBackground(){
+//     let colorTime = new Date();
+//     let colorSec = colorTime.getSeconds();
+//     let colorMin = colorTime.getMinutes();
+//     let colorHrs = colorTime.getHours();
+//     let hexColor = '#' + colorSec + colorHrs + colorMin;
+//     console.log(hexColor);
+//     clockFaceColor.style.background = hexColor;
+// }
 
 setInterval(function() {
-    clockTime.textContent = displayTime();
+    clockTime.textContent = displayTimeColor();
     percentTime();
-    changeBackground();
+    //changeBackground();
 }, 1000);
+
+// clockTime.addEventListener('mouseover', () => {
+//     clockTime.textContent =  clockTime.background;
+// })
 
 
